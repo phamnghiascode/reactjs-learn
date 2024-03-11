@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" className="bg-body-tertiary fw-bold">
             <Container>
-                <Navbar.Brand href="#home">QuyZzz</Navbar.Brand>
+                <NavLink to="/" className='navbar-brand'>QuyZzz</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -17,10 +17,12 @@ const Header = () => {
                         <NavLink to="/admins" className='nav-link'>Admins</NavLink>
                     </Nav>
                     <Nav>
+                        <button className='btn-login px-3 me-3'>Log In</button>
+                        <button className='btn-signup px-3'>Sign Up</button>
                         <NavDropdown title="Setting" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Log In</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">My Profile</NavDropdown.Item>
+                            <NavDropdown.Item>Log In</NavDropdown.Item>
+                            <NavDropdown.Item>Log Out</NavDropdown.Item>
+                            <NavDropdown.Item>My Profile</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
