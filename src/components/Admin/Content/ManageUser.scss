@@ -1,0 +1,20 @@
+.manage-user-container {
+    .user-content {}
+}
+
+.modal-add-user {
+    .img-preview {
+        display: inline-block;
+        height: 150px;
+        border: 1px dashed #ccc;
+        border-radius: 5px;
+        justify-content: center;
+        align-items: center;
+        color: #ccc;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
