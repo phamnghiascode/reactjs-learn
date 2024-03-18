@@ -18,15 +18,21 @@ const TableUser = (props) => {
                 <tbody>
                     {
                         listUsers && listUsers.length > 0 &&
-                        listUsers.map((user, index) => {
+                        listUsers.map((item, index) => {
                             return (<tr key={`table-user-${index}`}>
-                                <td>{user.id}</td>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
-                                <td>{user.role}</td>
+                                <td>{item.id}</td>
+                                <td>{item.username}</td>
+                                <td>{item.email}</td>
+                                <td>{item.role}</td>
                                 <td>
-                                    <button className="btn btn-secondary">View</button>
-                                    <button className="btn btn-warning mx-3">Update</button>
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={() => { props.handleClickBtnView(item) }}
+                                    >View</button>
+                                    <button
+                                        className="btn btn-warning mx-3"
+                                        onClick={() => props.handleClickBtnUpdate(item)}
+                                    >Update</button>
                                     <button className="btn btn-danger">Delete</button>
                                 </td>
                             </tr>)
