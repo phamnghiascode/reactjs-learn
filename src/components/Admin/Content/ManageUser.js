@@ -79,12 +79,6 @@ const ManageUser = (props) => {
                     </button>
                 </div>
                 <div className="table-users-container">
-                    {/* <TableUser
-                        listUsers={listUsers}
-                        handleClickBtnUpdate={handleClickBtnUpdate}
-                        handleClickBtnView={handleClickBtnView}
-                        handleClickBtnDelete={handleClickBtnDelete}
-                    /> */}
                     <TableUserPaginate
                     listUsers={listUsers}
                     handleClickBtnUpdate={handleClickBtnUpdate}

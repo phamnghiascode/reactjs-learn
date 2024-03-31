@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './Login.scss'
 import {  useNavigate } from 'react-router-dom'
-import { postLogin } from '../../services/apiServices'
+import { postRegister } from '../../services/apiServices'
 import {toast} from "react-toastify"
-const Login = (props) => {
+const Register = (props) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [username, setUsername] = useState("")
     const navigate = useNavigate()
     const validateEmail = (email) => {
         return String(email)
@@ -14,7 +15,7 @@ const Login = (props) => {
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
           );
       };
-    const handleLogin =async ()=> {
+    const handleRegister =async ()=> {
         //validate
         const isValidEmail = validateEmail(email)
         if (!isValidEmail){
@@ -26,10 +27,11 @@ const Login = (props) => {
             return
         }
         //submit
-        let data = await postLogin(email, password)
+        let data = await postRegister(email, password, username)
+        console.log("register data: >>>>> ", data)
         if (data && data.EC === 0) {
             toast.success(data.EM)
-            navigate("/")
+            navigate("/login")
            
         }
         if (data && +data.EC !== 0) {
@@ -39,14 +41,14 @@ const Login = (props) => {
     return (
         <div className="login-container">
            <div className='header'>
-           <span>Dont have an account yet?</span> 
-           <button onClick={()=> navigate('/register')}>Sign up</button>
+           <span>Have one?</span> 
+           <button onClick={()=>navigate("/login")}>Sign in</button>
            </div>
            <div className='title col-4 mx-auto'>
             QuyZzz
            </div>
            <div className='welcome col-4 mx-auto'>
-            Hello, who's this?
+            Let start our journey!
            </div>
            <div className='content-form col-4 mx-auto'>
             <div className='form-group'>
@@ -65,10 +67,18 @@ const Login = (props) => {
                 value={password}
                 onChange={(event)=> setPassword(event.target.value)}/>
             </div>
+            <div className='form-group'>
+                <label>User name</label>
+                <input 
+                type={"text"} 
+                className="form-control"
+                value={username}
+                onChange={(event)=> setUsername(event.target.value)}/>
+            </div>
             <span className='forgot-password'>Forgot password</span>
             <div>
             <button className='btn-submit'
-            onClick={()=> handleLogin()}>Login to QuyZzz</button>
+            onClick={()=> handleRegister()}>Create now</button>
             </div>
             <div className='text-center'>
                 <span className='back' onClick={()=> {navigate("/")}}> &#60;&#60; Go to Homepage</span>
@@ -77,4 +87,4 @@ const Login = (props) => {
         </div>
     )
 }
-export default Login
+export default Register
