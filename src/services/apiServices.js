@@ -1,4 +1,4 @@
-import { delay } from "lodash";
+
 import axios from "../utils/axiosCustomize"
 const postCreateNewUser = async (email, password, username, role, image) => {
     // submit data
@@ -56,6 +56,34 @@ const getDataQuiz = (id) => {
 const postSubmitQuiz = (data) => {
     return axios.post(`/api/v1/quiz-submit`, {...data})
 }
+
+const postCreateNewquiz = (description, name, difficulty, quizImage ) => {
+    const data = new FormData();
+    data.append('description', description);
+    data.append('name', name);
+    data.append('difficulty', difficulty);
+    data.append('quizImage', quizImage);
+    return axios.post('api/v1/quiz', data)
+}
+
+const getAllQuizForAdmin = () => {
+    return axios.get(`/api/v1/quiz/all`)
+}
+
+const deleteQuizByAdmin = (id) => {
+    return axios.delete(`/api/v1/quiz/${id}`)
+}
+const putUpdateQuizForAdmin = (id, name, description, difficulty, image)=>
+{
+    const data = new FormData()
+    data.append("id", id)
+    data.append("description", description)
+    data.append("name", name)
+    data.append("difficulty", difficulty)
+    data.append("quizImage", image)
+    return axios.put(`api/v1/quiz`, data)
+
+}
 export {
     postCreateNewUser,
     getAllUsers,
@@ -66,5 +94,9 @@ export {
     postRegister,
     getQuizByUser,
     getDataQuiz,
-    postSubmitQuiz
+    postSubmitQuiz,
+    postCreateNewquiz,
+    getAllQuizForAdmin,
+    deleteQuizByAdmin,
+    putUpdateQuizForAdmin
 }
