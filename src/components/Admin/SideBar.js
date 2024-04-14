@@ -66,7 +66,10 @@ const SideBar = (props) => {
                                 Manage quizz
                                 <Link to="/admins/manage-quizzes" />
                             </MenuItem>
-                            <MenuItem>Manage question</MenuItem>
+                            <MenuItem>
+                                Manage question
+                                <Link to="/admins/manage-questions" />
+                            </MenuItem>
                         </SubMenu>
 
                     </Menu>
