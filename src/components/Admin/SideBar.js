@@ -11,9 +11,11 @@ import {
 import { FaTachometerAlt, FaGem, FaList, FaGithub, FaRegLaughWink, FaHeart } from 'react-icons/fa';
 import sidebarBg from '../../assets/bg2.jpg';
 import { DiReact } from "react-icons/di"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
+const SideBar = (props) => {
+    const navigate = useNavigate()
+    const { image, collapsed, toggled, handleToggleSidebar } = props
     return (
         <>
             <ProSidebar
@@ -37,7 +39,9 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                         }}
                     >
                         <DiReact size={"3em"} color={"00bfff"} />
-                        <span>Admin</span>
+                        <span onClick={()=> navigate("/")}>
+                                Admin
+                        </span>
                     </div>
                 </SidebarHeader>
 
@@ -55,8 +59,13 @@ const SideBar = ({ image, collapsed, toggled, handleToggleSidebar }) => {
                             icon={<FaGem />}
                             title="Features"
                         >
-                            <MenuItem>Mange users  <Link to="/admins/manage-users" /></MenuItem>
-                            <MenuItem>Manage quizz</MenuItem>
+                            <MenuItem>Mange users 
+                             <Link to="/admins/manage-users" />
+                             </MenuItem>
+                            <MenuItem >
+                                Manage quizz
+                                <Link to="/admins/manage-quizzes" />
+                            </MenuItem>
                             <MenuItem>Manage question</MenuItem>
                         </SubMenu>
 
