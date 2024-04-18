@@ -30,9 +30,7 @@ const ModalCreateUser = (props) => {
             setPreviewImage(URL.createObjectURL(event.target.files[0]))
             setImage(event.target.files[0])
         }
-        //  else
-        //     setPreviewImage("")
-
+    
     }
     const validateEmail = (email) => {
         return email.match(
