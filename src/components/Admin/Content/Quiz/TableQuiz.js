@@ -12,6 +12,7 @@ const TableQuiz= (props) => {
     const [isShowModalDelete, setIsShowModalDelete] = useState(false)
     const [dataUpdate, setDataUpdate] = useState({})
     const [dataDelete, setDataDelete] = useState({})
+    
     useEffect(()=> {
         fetchQuiz()
     }, [])
