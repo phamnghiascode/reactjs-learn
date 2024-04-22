@@ -6,6 +6,7 @@ import _ from 'lodash'
 import Question from "./Question"
 import ModalResult from "./ModalResult"
 import { setSelectionRange } from "@testing-library/user-event/dist/utils"
+import RightContent from "./Content/RightContent"
 
 
 
@@ -157,7 +158,10 @@ const DetailQuiz = (props) => {
            </div>
 
            <div className="right-content">
-                countdownt timer
+                <RightContent
+                    dataQuiz={dataQuiz}
+                    handleFinishQuiz={handleFinishQuiz}
+                />
             </div>
             <ModalResult
             show={isShowModalResult}
