@@ -3,6 +3,7 @@ import './Login.scss'
 import {  useNavigate } from 'react-router-dom'
 import { postRegister } from '../../services/apiServices'
 import {toast} from "react-toastify"
+import Language from '../Header/Language'
 const Register = (props) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -28,7 +29,7 @@ const Register = (props) => {
         }
         //submit
         let data = await postRegister(email, password, username)
-        console.log("register data: >>>>> ", data)
+        // console.log("register data: >>>>> ", data)
         if (data && data.EC === 0) {
             toast.success(data.EM)
             navigate("/login")
@@ -43,6 +44,7 @@ const Register = (props) => {
            <div className='header'>
            <span>Have one?</span> 
            <button onClick={()=>navigate("/login")}>Sign in</button>
+           <Language/>
            </div>
            <div className='title col-4 mx-auto'>
             QuyZzz

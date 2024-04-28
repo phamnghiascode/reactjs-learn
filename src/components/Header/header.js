@@ -7,6 +7,7 @@ import {useDispatch, useSelector} from "react-redux"
 import { logout } from '../../services/apiServices';
 import { toast } from 'react-toastify';
 import { doLogout } from '../../redux/action/userAction';
+import Language from './Language';
 const Header = () => {
 
     const isAuthenticated = useSelector(state => state.user.isAuthenticated)
@@ -24,8 +25,9 @@ const Header = () => {
     }
 
     const handleLogout = async () => {
-        console.log("accout: ", account)
+        // console.log("accout: ", account)
         let res = await logout(account.email, account.refresh_token)
+
         if(res && res.EC === 0){
             dispatch(doLogout())
             navigate("/login")
@@ -34,6 +36,8 @@ const Header = () => {
             toast.error(res.EM)
         }
     }
+    // console.log("authen: ", isAuthenticated)
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary fw-bold">
             <Container>
@@ -46,7 +50,7 @@ const Header = () => {
                         <NavLink to="/admins" className='nav-link'>Admins</NavLink>
                     </Nav>
                     <Nav>
-                        {isAuthenticated=== false?
+                        {isAuthenticated === false ?
                         <>
                             <button className='btn-login px-3 me-3' onClick={() => {handleLogin()}}>Log In</button>
                             <button className='btn-signup px-3' onClick={()=> handleRegister()}>Sign Up</button>
@@ -57,6 +61,8 @@ const Header = () => {
                             <NavDropdown.Item onClick={()=>handleLogout()}>Log Out</NavDropdown.Item>
                         </NavDropdown>
                         }   
+                        <Language/>
+                       
                     </Nav>
                 </Navbar.Collapse>
             </Container>
