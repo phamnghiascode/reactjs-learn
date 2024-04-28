@@ -7,6 +7,12 @@
                 "doquiz":"Trả lời câu hỏi"
 
             }
+        },
+        "DashBoard": {
+            "users": "Tổng số người dùng",
+            "quizzes": "Tổng số bài thi",
+            "questions" : "Tổng số câu hỏi",
+            "answers":"Tổng số câu trả lời"
         }
     
 }

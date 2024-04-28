@@ -5,7 +5,6 @@ import "./DetailQuiz.scss"
 import _ from 'lodash'
 import Question from "./Question"
 import ModalResult from "./ModalResult"
-import { setSelectionRange } from "@testing-library/user-event/dist/utils"
 import RightContent from "./Content/RightContent"
 
 
@@ -41,6 +40,7 @@ const DetailQuiz = (props) => {
                     item.answers.isSelected = false
                     answers.push(item.answers)
                 })
+                answers = _.orderBy(answers, ['id'], ['asc'])
                 return { questionId: key, answers: answers, questionDescription, image }
             })
             .value()

@@ -25,7 +25,6 @@ const Header = () => {
     }
 
     const handleLogout = async () => {
-        // console.log("accout: ", account)
         let res = await logout(account.email, account.refresh_token)
 
         if(res && res.EC === 0){
@@ -36,7 +35,6 @@ const Header = () => {
             toast.error(res.EM)
         }
     }
-    // console.log("authen: ", isAuthenticated)
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary fw-bold">

@@ -6,7 +6,11 @@
                 "login":"Get's started. It's free",
                 "doquiz":"Do Quiz Now"
             }      
-        
-       
-    }
+        },
+        "DashBoard": {
+            "users": "Total Users",
+            "quizzes": "Total Quizzes",
+            "questions" : "Total Questions",
+            "answers":"Total Answers"
+        }
 }
